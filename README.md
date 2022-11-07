@@ -1,0 +1,1 @@
+# bangumi-hide-default-avatar
