@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Bangumi Hide Users with Default Avatar
-// @version      0.1
+// @version      0.2
 // @description  Bangumi Hide Users with Default Avatar
 // @author       Komeiji⚓
 // @include     /^https?://((bangumi|bgm)\.tv|chii\.in)
@@ -36,8 +36,9 @@ function subject() {
     }());
 }
 
-// post
+// post, mobile topic
 const re_post = /^https?:\/\/((bangumi|bgm)\.tv|chii\.in)\/((subject|group|rakuen)\/topic|blog|ep|person|character)\//g;
+const re_mobile_topic = /^https?:\/\/((bangumi|bgm)\.tv|chii\.in)\/m\/topic\//g;
 function post() {
     var elems = document.querySelectorAll("div[id^='post_']");
     for (var i = 0; i < elems.length; ++i) {
@@ -62,8 +63,9 @@ function group() {
     }
 }
 
-// rakuen
+// rakuen, mobile
 const re_rakuen = /^https?:\/\/((bangumi|bgm)\.tv|chii\.in)\/rakuen\/topiclist/g;
+const re_mobile = /^https?:\/\/((bangumi|bgm)\.tv|chii\.in)\/m/g;
 function rakuen() {
     var elems = document.querySelectorAll("li[id^='item_']");
     for (var i = 0; i < elems.length; ++i) {
@@ -91,9 +93,9 @@ function home() {
 (function () {
     'use strict';
     var url = window.location.href;
-    if (url.match(re_post)) post();
+    if (url.match(re_post) || url.match(re_mobile_topic)) post();
     else if (url.match(re_subject)) subject();
-    else if (url.match(re_rakuen)) rakuen();
+    else if (url.match(re_rakuen) || url.match(re_mobile)) rakuen();
     else if (url.match(re_group)) group();
     else if (url.match(re_home)) home();
 })();
