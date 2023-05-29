@@ -1,11 +1,9 @@
 // ==UserScript==
 // @name         Bangumi Hide Users with Default Avatar
 // @version      0.2
-// @description  Hide Users with Default Avatar at bangumi.tv
+// @description  Bangumi Hide Users with Default Avatar
 // @author       Komeiji⚓
-// @include      /^https?://((bangumi|bgm)\.tv|chii\.in)
-// @license      MIT
-// @namespace https://greasyfork.org/users/980680
+// @include     /^https?://((bangumi|bgm)\.tv|chii\.in)
 // ==/UserScript==
 
 const re_default_avatar = /\/\/lain.bgm.tv\/pic\/user\/[sml]\/icon.jpg/g;
